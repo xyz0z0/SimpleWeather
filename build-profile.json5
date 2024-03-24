@@ -1,6 +1,20 @@
 {
   "app": {
-    "signingConfigs": [],
+    "signingConfigs": [
+      {
+        "name": "default",
+        "type": "HarmonyOS",
+        "material": {
+          "certpath": "C:\\Users\\Mi\\.ohos\\config\\auto_debug_SimpleWeather2_com.example.simpleweather_260086000066371853.cer",
+          "storePassword": "0000001B46589ECE0C544168E8C7E14228004A3F9894ECF29198E7BB76DB4F82E946C80A3B0D87CA0C0585",
+          "keyAlias": "debugKey",
+          "keyPassword": "0000001B1D0F1C35186692FE2F0B23C53B7925460531DF6422FAEC2618D46D83A07B38D722B90F342522F2",
+          "profile": "C:\\Users\\Mi\\.ohos\\config\\auto_debug_SimpleWeather2_com.example.simpleweather_260086000066371853.p7b",
+          "signAlg": "SHA256withECDSA",
+          "storeFile": "C:\\Users\\Mi\\.ohos\\config\\auto_debug_SimpleWeather2_com.example.simpleweather_260086000066371853.p12"
+        }
+      }
+    ],
     "compileSdkVersion": 9,
     "compatibleSdkVersion": 9,
     "products": [

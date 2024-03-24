@@ -11,6 +11,10 @@
     {
       "name": "EntryAbility_label",
       "value": "label"
+    },
+    {
+      "name": "request_permission_reason",
+      "value": "获取天气数据"
     }
   ]
 }
