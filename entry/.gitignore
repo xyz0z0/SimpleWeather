@@ -4,4 +4,4 @@
 /build
 /.cxx
 /.test
-/main/ets/constants/PrivateKey.ts
+/src/main/ets/constants/PrivateKey.ts
