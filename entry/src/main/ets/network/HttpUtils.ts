@@ -3,9 +3,8 @@ import KeyConstants from '../constants/KeyConstants'
 import NowWeather from './bean/NowWeather'
 
 class HttpUtils {
-
   private httpRequest: http.HttpRequest
-  private requestUrl: string = "https://devapi.qweather.com/v7/weather/now?location=101021600&key="+KeyConstants.KEY
+  private requestUrl: string = "https://devapi.qweather.com/v7/weather/now?location=101021600&key=" + KeyConstants.KEY
 
   constructor() {
 
@@ -40,16 +39,22 @@ class HttpUtils {
       if (!err) {
         // data.result为HTTP响应内容，可根据业务需要进行解析
 
-        console.info("test===>", typeof (data.result))
-        console.info("test===>",(data.result as NowWeather).code)
-        console.info('Result:' + JSON.stringify(data.result));
-        console.info('code:' + JSON.stringify(data.responseCode));
-        // data.header为HTTP响应头，可根据业务需要进行解析
-        console.info('header:' + JSON.stringify(data.header));
-        console.info('cookies:' + JSON.stringify(data.cookies)); // 8+\
-        listener(false, data.result as NowWeather)
+        // console.info("test===>", typeof (data.result))
+        // console.info("test===>", (data.result as NowWeather).code)
+        // console.info('Result:' + JSON.stringify(data.result));
+        // console.info('code:' + JSON.stringify(data.responseCode));
+        // // data.header为HTTP响应头，可根据业务需要进行解析
+        // console.info('header:' + JSON.stringify(data.header));
+        // console.info('cookies:' + JSON.stringify(data.cookies)); // 8+\
+        let response = data.result as NowWeather
+        // 直接判断，NowWeather 里面写成 abstract 类则会报错
+        if (response.code == "200") {
+          listener(false, response)
+        } else {
+          listener(true, null)
+        }
       } else {
-        listener(true,null)
+        listener(true, null)
         console.info('error:' + JSON.stringify(err));
         // 取消订阅HTTP响应头事件
         this.httpRequest.off('headersReceive');
